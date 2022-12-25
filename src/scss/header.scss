@@ -1,0 +1,155 @@
+//====================================================================================================
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+  display: none;
+
+  @media (max-width: $mobile) {
+    display: block;
+    position: relative;
+    margin-left: 0;
+    width: $size-600;
+    height: $size-400;
+    cursor: pointer;
+    z-index: 5;
+
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: rem(2);
+      background-color: $mainColor;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span {
+      top: calc(50% - rem(1));
+    }
+
+    .menu-open & {
+      span {
+        width: 0;
+      }
+
+      &::before {
+        top: calc(50% - rem(1));
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        bottom: calc(50% - rem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+.header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  color: $mainColor;
+
+  &__tel {
+    font-size: $fs-600;
+  }
+
+  &._header-scroll {
+    z-index: 100;
+    background-color: #0c4231;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+
+  @media (min-width: $mobile) {
+    display: flex;
+    padding: $size-600 0;
+  }
+
+  @media (max-width: $mobile) {
+    align-items: center;
+    padding: $size-600 0;
+
+    .icon-menu {
+      align-self: flex-end;
+    }
+  }
+
+  &__body {
+    @media (max-width: $mobile) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      padding: $size-1000 $size-600 $size-600;
+      background-color: #0c4231;
+      transform: translateY(-200%);
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility $delay, opacity $delay, transform $delay;
+    }
+  }
+
+  &__list {
+    @media (min-width: $mobile) {
+      display: grid;
+      grid-auto-flow: column;
+      gap: $size-650;
+      font-size: $size-400;
+    }
+
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+  }
+
+
+  &__link {
+    @media (max-width: $mobile) {
+      padding: $size-400;
+      display: block;
+      font-size: $fs-700;
+      transition: background-color $delay;
+    }
+
+    &:active {
+      @media (max-width: $mobile) {
+        background-color: $mainColor;
+        color: $primaryColor;
+      }
+    }
+
+    &._navigator-active {
+      color: #82a9af;
+    }
+
+    &:hover {}
+  }
+
+  .menu-open &__body {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+}

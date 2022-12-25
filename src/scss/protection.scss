@@ -1,0 +1,26 @@
+.protection {
+  color: $primaryColor;
+
+  &__container {}
+
+  &__title {
+    margin-bottom: $size-650;
+
+    @media (max-width: $tablet) {
+      margin-bottom: $size-600;
+    }
+
+    @media (max-width: $mobile) {
+      margin-bottom: $size-400;
+    }
+  }
+}
+
+.spollers {
+
+  &__item {}
+
+  &__title {}
+
+  &__body {}
+}

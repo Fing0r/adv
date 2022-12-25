@@ -1,0 +1,83 @@
+.emergency-help {
+  &__box {
+    display: flex;
+    padding: $size-650;
+    border: 2px solid $mainColor;
+    gap: $size-500;
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      border: none;
+      gap: $size-400;
+      padding: $size-500;
+    }
+  }
+
+  &__left {
+    @media (min-width: $tablet) {
+      flex: 65%;
+    }
+  }
+
+  &__now {
+    font-size: $fs-800;
+    line-height: calc($fs-900 / $fs-800);
+    margin-bottom: $size-600;
+
+    @media (max-width: $pc) {
+      font-size: $fs-700;
+      margin-bottom: $size-500;
+    }
+
+    @media (max-width: $tablet) {
+      margin-bottom: $size-400;
+    }
+  }
+
+  &__text {
+    font-size: $fs-600;
+    line-height: calc($fs-700 / $fs-600);
+
+    @media (max-width: $pc) {
+      font-size: $fs-300;
+    }
+  }
+
+  &__right {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+
+    &:hover .emergency-help__save {
+      color: $darkColor;
+    }
+
+    @media (min-width: $tablet) {
+      flex: 35%;
+    }
+
+    @media (max-width: $tablet) {
+      grid-template-columns: rem(75) 1fr;
+    }
+  }
+
+  &__icon {
+    grid-row: 1 / 3;
+
+    @media (min-width: $tablet) {
+      grid-column: 1;
+    }
+
+    @media (max-width: $tablet) {
+      width: rem(75);
+      grid-template-columns: rem(75) 1fr;
+    }
+  }
+
+  &__save {
+    font-size: $fs-600;
+    line-height: calc($fs-700 / $fs-600);
+    font-weight: $fw-bold;
+    transition: color 0.3s;
+  }
+}

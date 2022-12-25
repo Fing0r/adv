@@ -1,0 +1,58 @@
+.hero {
+  max-width: rem(1400);
+  width: 100%;
+  margin: 0px auto;
+  background: url('@img/bg.jpg') right/cover no-repeat;
+
+  &__container {
+    display: flex;
+    height: calc(100vh - rem(78));
+    flex-direction: column;
+    padding-top: rem(78);
+    justify-content: center;
+    align-items: flex-start;
+    color: $mainColor;
+  }
+
+  &__title {
+    font-size: $fs-1200;
+    margin-bottom: $size-400;
+
+    @media (max-width: $mobile) {
+      font-size: $fs-1050;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: $fs-900;
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-800;
+    margin-bottom: $size-400;
+
+    @media (max-width: $mobile) {
+      font-size: $fs-700;
+    }
+
+    @media (max-width: $mobileSmall) {
+      font-size: $fs-600;
+    }
+  }
+
+  &__descr {
+    display: block;
+    font-size: $fs-600;
+    margin-bottom: $size-700;
+
+    @media (max-width: $mobileSmall) {
+      font-size: $fs-500;
+    }
+  }
+
+  &__btn {
+    font-size: $fs-400;
+    padding: $size-400 $size-300;
+    border: 1px solid $mainColor;
+  }
+}

@@ -1,0 +1,100 @@
+// Базовые стили спойлеров
+// Сниппет (HTML): spoller
+
+// Блок со спойлерами
+.spollers {
+  display: grid;
+}
+
+// Спойлер
+.spollers__item {
+  font-size: rem(16);
+  line-height: math.div(24, 16);
+  border-top: 1px solid $primaryColor;
+
+  &:last-child {
+    border-bottom: 1px solid $primaryColor;
+  }
+}
+
+// Заголовок спойлера
+.spollers__title {
+  width: 100%;
+  cursor: default;
+  text-align: left;
+  padding: rem(27) rem(50) rem(27) 0;
+  position: relative;
+
+  ._spoller-init & {
+    cursor: pointer;
+
+    .spollers__icon {
+      display: block;
+      position: absolute;
+      padding: 5px;
+      background-color: transparent;
+      right: 10px;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      transition: transform 0.3s ease 0s, background-color 0.3s ease 0s;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        right: 5px;
+        background-color: $primaryColor;
+        top: 50%;
+        height: 2px;
+        width: 30px;
+        transition: transform 0.5s ease 0s;
+      }
+
+      &::before {
+        transform: translate(0%, -50%) rotate(0deg);
+      }
+
+      &::after {
+        transform: translate(0, -50%) rotate(90deg);
+      }
+
+      &:hover {
+        background-color: $primaryColor;
+
+        &::before,
+        &::after {
+          background-color: $mainColor;
+        }
+      }
+    }
+
+  }
+
+  @media (max-width: $mobile) {
+    padding-top: rem(20);
+    padding-bottom: rem(20);
+  }
+}
+
+._spoller-init ._spoller-active .spollers__icon {
+  transform: translateY(-50%) rotate(45deg);
+  background-color: $primaryColor;
+
+  &::before,
+  &::after {
+    background-color: $mainColor;
+  }
+}
+
+// Контент спойлера
+.spollers__body {
+  padding: rem(10) 0 rem(27);
+
+  @media (max-width: $mobile) {
+    padding-bottom: rem(20);
+    font-size: rem(13);
+  }
+}
