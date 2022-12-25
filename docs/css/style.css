@@ -426,6 +426,7 @@ body {
 }
 
 .about__img {
+  position: relative;
   margin-right: -5rem;
   z-index: 1;
   width: 13.75rem;
